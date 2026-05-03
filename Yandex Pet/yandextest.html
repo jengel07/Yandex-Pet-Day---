@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yandex Pet Day 2025 | Конференция по Digital-зообизнесу</title>
+    <style>
+        /* ОСНОВНЫЕ СТИЛИ В СТИЛЕ YANDEX */
+        :root {
+            --yandex-yellow: #ffcc00;
+            --yandex-black: #000000;
+            --yandex-white: #ffffff;
+            --bg-gray: #f5f5f5;
+            --text-main: #000000;
+            --text-secondary: #5b5b5b;
+            --radius-main: 30px; /* Фирменное закругление */
+            --radius-button: 16px;
+            --transition: 0.3s ease;
+        }
+
+        /* ШРИФТЫ (имитация Yandex Sans) */
+        @font-face {
+            font-family: 'YS Text';
+            src: url('https://yastat.net/s3/home/fonts/ys/1/ys-text-regular.woff2') format('woff2');
+            font-weight: 400; font-style: normal;
+        }
+        @font-face {
+            font-family: 'YS Text';
+            src: url('https://yastat.net/s3/home/fonts/ys/1/ys-text-bold.woff2') format('woff2');
+            font-weight: 700; font-style: normal;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'YS Text', Arial, sans-serif; line-height: 1.5; color: var(--text-main); background-color: var(--yandex-white); -webkit-font-smoothing: antialiased; }
+        
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        ul { list-style: none; }
+
+        /* КНОПКИ */
+        .btn { display: inline-block; padding: 18px 45px; border-radius: var(--radius-button); font-weight: 700; font-size: 18px; cursor: pointer; border: none; transition: var(--transition); text-align: center; }
+        .btn-black { background-color: var(--yandex-black); color: var(--yandex-white); }
+        .btn-black:hover { opacity: 0.85; transform: translateY(-2px); }
+        .btn-yellow { background-color: var(--yandex-yellow); color: var(--yandex-black); }
+        .btn-yellow:hover { background-color: #f5c200; transform: translateY(-2px); }
+
+        /* ЗАГОЛОВКИ */
+        h1, h2, h3 { font-weight: 700; line-height: 1.1; }
+        h2 { font-size: 42px; margin-bottom: 50px; position: relative; display: inline-block; }
+        /* Декоративная полоска под заголовком в стиле Яндекс */
+        h2::after { content: ''; position: absolute; bottom: -10px; left: 0; width: 60px; height: 6px; background: var(--yandex-yellow); border-radius: 3px; }
+
+        section { padding: 100px 0; }
+
+        /* --- 1. HERO SECTION --- */
+        /* --- ОБНОВЛЕННЫЕ СТИЛИ HERO SECTION ДЛЯ ИЗОБРАЖЕНИЯ --- */
+        .hero { 
+            background-color: var(--yandex-yellow); 
+            padding: 100px 0 0; /* Убираем нижний паддинг, чтобы изображение могло "прилипать" */
+            position: relative; 
+            overflow: hidden; 
+            border-bottom-left-radius: 60px; 
+            border-bottom-right-radius: 60px; 
+            display: flex;
+            align-items: center;
+        }
+
+        /* Новая сетка для текста и изображения */
+        .hero-layout {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end; /* Изображение будет прижато к низу */
+            width: 100%;
+        }
+
+        .hero-content { 
+            max-width: 550px; /* Уменьшаем ширину текста, чтобы освободить место справа */
+            padding-bottom: 80px; /* Паддинг для текста */
+            z-index: 2; 
+            position: relative; 
+        }
+
+        .hero h1 { font-size: 56px; margin-bottom: 25px; }
+        .hero-desc { font-size: 20px; color: rgba(0,0,0,0.8); margin-bottom: 40px; }
+
+        /* Обертка для изображения */
+        .hero-image-wrapper {
+            flex: 1; /* Занимает оставшееся место */
+            max-width: 500px; /* Ограничиваем максимальную ширину */
+            position: relative;
+            align-self: flex-end; /* Прижимаем изображение к низу секции */
+            line-height: 0; /* Убираем лишние отступы снизу */
+        }
+
+        /* Стили самого изображения */
+        .hero-image {
+            width: 100%;
+            height: auto;
+            object-fit: contain; /* Изображение будет масштабироваться без искажений */
+            object-position: bottom; /* Выравнивание по нижнему краю */
+            transform: translateX(20px); /* Легкий сдвиг вправо для композиции */
+        }
+
+        /* Псевдо-элементы для лапок оставляем, они будут "играть" с фоном */
+        .hero::before { content: '🐾'; position: absolute; font-size: 150px; opacity: 0.03; bottom: -30px; left: 10%; transform: rotate(-15deg); }
+        .hero::after { content: '🐶'; position: absolute; font-size: 100px; opacity: 0.05; top: 10%; right: 10%; transform: rotate(10deg); }
+
+
+        /* --- АДАПТИВНОСТЬ ДЛЯ ИЗОБРАЖЕНИЯ (MOBILE FIRST) --- */
+        @media (max-width: 900px) {
+            .hero { padding: 80px 0 0; }
+            .hero-layout { 
+                flex-direction: column; /* На мобильных текст и фото в одну колонку */
+                align-items: center;
+                text-align: center;
+            }
+            .hero-content {
+                max-width: 100%;
+                padding-bottom: 40px;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            .hero-desc { font-size: 18px; }
+            .hero h1 { font-size: 42px; }
+
+            .hero-image-wrapper {
+                max-width: 80%; /* Изображение не должно быть слишком большим на мобильном */
+                order: 2; /* Изображение будет вторым в колонке (после текста) */
+            }
+            .hero-image {
+                transform: translateX(0); /* Убираем сдвиг */
+                max-height: 300px; /* Ограничиваем высоту, чтобы не занимало весь экран */
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 32px; }
+            .hero-image { max-height: 250px; }
+        }
+        
+        /* Декоративные элементы (лапки) */
+        .hero::before { content: '🐾'; position: absolute; font-size: 150px; opacity: 0.03; bottom: -30px; right: 5%; transform: rotate(-15deg); }
+        .hero::after { content: '🐶'; position: absolute; font-size: 100px; opacity: 0.05; top: 10%; left: 5%; transform: rotate(10deg); }
+
+        /* --- 2. ADVANTAGES (GRID) --- */
+        .advantages { background-color: var(--yandex-white); }
+        .adv-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+        .adv-card { background-color: var(--bg-gray); padding: 40px; border-radius: var(--radius-main); transition: var(--transition); }
+        .adv-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .adv-card h3 { font-size: 24px; margin-bottom: 15px; }
+        .adv-card p { color: var(--text-secondary); font-size: 16px; }
+
+        /* --- 3. SPEAKERS (GRID + ФОТО) --- */
+        .speakers { background-color: var(--bg-gray); border-radius: 60px; }
+        .speakers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .speaker-card { background: var(--yandex-white); padding: 30px; border-radius: var(--radius-main); text-align: center; }
+        .speaker-avatar { width: 120px; height: 120px; border-radius: 50%; background: #eee; margin: 0 auto 20px; border: 5px solid var(--yandex-yellow); object-fit: cover; }
+        .speaker-card h3 { font-size: 20px; margin-bottom: 5px; }
+        .speaker-card p { color: var(--text-secondary); font-size: 14px; }
+        .speaker-role { font-weight: 700; color: var(--yandex-black); }
+
+        /* --- 4. PROGRAM (TIMELINE) --- */
+        .program { background-color: var(--yandex-white); }
+        .timeline { position: relative; max-width: 800px; margin: 0 auto; }
+        .timeline::before { content: ''; position: absolute; top: 0; left: 120px; width: 2px; height: 100%; background: #eee; }
+        .time-item { display: flex; margin-bottom: 40px; position: relative; }
+        .time-meta { width: 100px; text-align: right; font-weight: 700; color: var(--text-secondary); font-size: 16px; margin-right: 40px; padding-top: 5px; }
+        .time-content { flex: 1; background: var(--bg-gray); padding: 25px; border-radius: 20px; position: relative; }
+        /* Точка на таймлайне */
+        .time-item::after { content: ''; position: absolute; left: 115px; top: 10px; width: 12px; height: 12px; background: var(--yandex-yellow); border: 3px solid var(--yandex-white); border-radius: 50%; z-index: 2; }
+        .time-content h3 { font-size: 18px; margin-bottom: 5px; }
+        .time-content p { font-size: 14px; color: var(--text-secondary); }
+
+        /* --- 5. REGISTRATION (FORM) --- */
+        .register { background-color: var(--yandex-yellow); border-radius: 60px; position: relative; overflow: hidden; }
+        .reg-box { background: var(--yandex-white); padding: 60px; border-radius: var(--radius-main); max-width: 600px; margin: 0 auto; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.1); position: relative; z-index: 2; }
+        .reg-box h2 { font-size: 36px; margin-bottom: 10px; }
+        .reg-box h2::after { display: none; } /* Убираем полоску */
+        .reg-sub { color: var(--text-secondary); margin-bottom: 40px; }
+        
+        input, select, textarea { width: 100%; padding: 18px; margin-bottom: 15px; border: 1px solid #e0e0e0; border-radius: 12px; font-size: 16px; font-family: inherit; transition: var(--transition); }
+        input:focus, select:focus { border-color: var(--yandex-yellow); outline: none; box-shadow: 0 0 0 3px rgba(255, 204, 0, 0.2); }
+        .help-text { font-size: 13px; color: var(--text-secondary); text-align: left; margin: -10px 0 20px 5px; display: block; }
+
+        /* --- 6. FAQ (ACCORDION) --- */
+        .faq { background-color: var(--yandex-white); }
+        .faq-list { max-width: 800px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid #eee; }
+        .faq-question { padding: 25px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 18px; transition: var(--transition); }
+        .faq-question:hover { color: var(--yandex-yellow); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; color: var(--text-secondary); font-size: 16px; }
+        .faq-answer p { padding-bottom: 25px; }
+        /* Иконка плюсика/минусика */
+        .faq-icon { width: 24px; height: 24px; position: relative; }
+        .faq-icon::before, .faq-icon::after { content: ''; position: absolute; background: currentColor; transition: var(--transition); }
+        .faq-icon::before { width: 100%; height: 2px; top: 11px; left: 0; }
+        .faq-icon::after { width: 2px; height: 100%; top: 0; left: 11px; }
+        .faq-item.active .faq-icon::after { transform: rotate(90deg); opacity: 0; } /* Минус */
+
+        /* --- FOOTER --- */
+        footer { padding: 50px 0; background-color: var(--bg-gray); color: var(--text-secondary); font-size: 14px; border-top-left-radius: 60px; border-top-right-radius: 60px; }
+        .footer-content { display: flex; justify-content: space-between; align-items: center; }
+        .footer-links a { margin-left: 20px; }
+        .footer-links a:hover { color: var(--yandex-black); }
+
+        /* --- АДАПТИВНОСТЬ (MOBILE FIRST) --- */
+        @media (max-width: 900px) {
+            h2 { font-size: 32px; }
+            .hero h1 { font-size: 48px; }
+            .adv-grid { grid-template-columns: 1fr; }
+            .timeline::before, .time-item::after { left: 15px; }
+            .time-meta { width: 60px; text-align: left; margin-right: 20px; }
+            .time-item { flex-direction: column; }
+            .time-content { margin-left: 35px; }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 36px; }
+            .reg-box { padding: 40px 20px; }
+            .footer-content { flex-direction: column; text-align: center; gap: 20px; }
+            .footer-links a { margin: 0 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="hero">
+    <div class="container hero-layout">
+        <div class="hero-content">
+            <span class="badge">📅 20 ИЮНЯ 2025 • 📍 МОСКВА / ОНЛАЙН</span>
+            <h1>Yandex Pet Day</h1>
+            <p class="hero-desc">Первая конференция Яндекса о digital-продуктах в сфере зообизнеса. Разбираем ИИ-диагностику, зооморфизм в UI и новые модели монетизации.</p>
+            <a href="#register" class="btn btn-black">Зарегистрироваться</a>
+        </div>
+        <div class="hero-image-wrapper">
+            <img src="image_3.png" alt="Yandex Pet Day: Собака и Кот" class="hero-image">
+        </div>
+
+        
+    </div>
+    
+</header>
+
+<section class="advantages">
+    <div class="container">
+        <h2>Что будет:</h2>
+        <div class="adv-grid">
+            <div class="adv-card">
+                <h3>🐈 Здоровье и ИИ</h3>
+                <p>Как ИИ-диагностика и компьютерное зрение создают новые рынки в ветеринарии.</p>
+            </div>
+            <div class="adv-card">
+                <h3>📱 Интерфейсы</h3>
+                <p>Кейсы: зооморфизм в UI как инструмент удержания и лояльности аудитории.</p>
+            </div>
+            <div class="adv-card">
+                <h3>🤝 Нетворкинг</h3>
+                <p>Встреча с топ-менеджерами Яндекса, инвесторами и лидерами pet-индустрии.</p>
+            </div>
+            <div class="adv-card">
+                <h3>💰 Монетизация</h3>
+                <p>Разбор механик для продуктов, чья аудитория готова платить за комфорт питомцев.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="speakers">
+    <div class="container">
+        <h2>Спикеры:</h2>
+        <div class="speakers-grid">
+            <div class="speaker-card">
+                <img src="https://img.freepik.com/free-photo/portrait-of-a-happy-young-man_171337-1335.jpg" alt="Андрей Соколов" class="speaker-avatar">
+                <h3>Андрей Соколов</h3>
+                <p class="speaker-role">Head of Product Design, Яндекс</p>
+                <p>Ведущий конференции</p>
+            </div>
+            <div class="speaker-card">
+                <img src="https://img.freepik.com/free-photo/young-businesswoman-sitting-at-desk-and-working-on-laptop_171337-12882.jpg" alt="Мария Подольская" class="speaker-avatar">
+                <h3>Мария Подольская</h3>
+                <p class="speaker-role">Head of AI, Лаборатория инноваций</p>
+                <p>«Компьютерное зрение в ветеринарии»</p>
+            </div>
+            <div class="speaker-card">
+                <img src="https://img.freepik.com/free-photo/cheerful-bearded-businessman-walking_171337-14250.jpg" alt="Павел Сидоров" class="speaker-avatar">
+                <h3>Павел Сидоров</h3>
+                <p class="speaker-role">CEO, Зоо-Маркет</p>
+                <p>«От стартапа до маркетплейса №1»</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="program">
+    <div class="container">
+        <h2>Программа:</h2>
+        <div class="timeline">
+            <div class="time-item">
+                <div class="time-meta">10:00</div>
+                <div class="time-content"><h3>Приветственный кофе</h3><p>Нетворкинг с участниками и партнёрами (только офлайн)</p></div>
+            </div>
+            <div class="time-item">
+                <div class="time-meta">11:00</div>
+                <div class="time-content"><h3>Вводное слово</h3><p>Открытие конференции Yandex Pet Day 2025</p></div>
+            </div>
+            <div class="time-item">
+                <div class="time-meta">11:30</div>
+                <div class="time-content"><h3>«Компьютерное зрение в ветеринарии»</h3><p>Андрей Соколов, Head of Product Design, Яндекс</p></div>
+            </div>
+            <div class="time-item">
+                <div class="time-meta">12:10</div>
+                <div class="time-content"><h3>«Зооморфизм как драйвер лояльности»</h3><p>Мария Подольская, Head of AI, Лаборатория инноваций</p></div>
+            </div>
+            <div class="time-item">
+                <div class="time-meta">13:10</div>
+                <div class="time-content"><h3>«От стартапа до маркетплейса №1»</h3><p>Павел Сидоров — CEO, «Зоо-Маркет»</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="register" class="register">
+    <div class="container">
+        <div class="reg-box">
+            <h2>Присоединяйтесь</h2>
+            <p class="reg-sub">Заполните форму, чтобы получить доступ к трансляции или забронировать место в зале.</p>
+            <form id="regForm">
+                <input type="text" placeholder="Ваше Имя" required>
+                <input type="email" placeholder="Рабочая почта" required>
+                
+                <select id="formatSelect" required>
+                    <option value="" disabled selected>Выберите формат участия</option>
+                    <option value="online">Онлайн-трансляция</option>
+                    <option value="offline">Офлайн в Москве (ивент-пространство «Академия»)</option>
+                </select>
+                <span id="helpText" class="help-text"></span>
+
+                <textarea placeholder="Опишите ваш вопрос (опционально)" rows="3"></textarea>
+                
+                <button type="submit" class="btn btn-black" style="width: 100%;">Зарегистрироваться</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<section class="faq">
+    <div class="container">
+        <h2>Вопрос-ответ:</h2>
+        <div class="faq-list">
+            <div class="faq-item active"> <div class="faq-question">Я могу прийти с питомцем?<div class="faq-icon"></div></div>
+                <div class="faq-answer"><p>Да, если выбираете офлайн-формат! Мы организуем специальную зону для животных. Но убедительная просьба: убедитесь, что питомец социализирован.</p></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Будет ли запись докладов?<div class="faq-icon"></div></div>
+                <div class="faq-answer"><p>Обязательно. Все зарегистрированные участники получат доступ к видеозаписям и презентациям в течение 3 дней после конференции.</p></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Есть ли смысл ехать из другого города?<div class="faq-icon"></div></div>
+                <div class="faq-answer"><p>Да! Офлайн-участников ждёт закрытый бизнес-завтрак и неформальное общение с лидерами рынка. Для просто контента достаточно онлайна.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container footer-content">
+        <p>&copy; Yandex Pet Day, 2026. Все права защищены.</p>
+        <div class="footer-links">
+            <a href="#">Политика конфиденциальности</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // 1. ПЛАВНЫЙ СКРОЛЛ К ЯКОРЯМ
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // 2. ДИНАМИЧЕСКАЯ ПОДСКАЗКА В ФОРМЕ
+    const select = document.getElementById('formatSelect');
+    const helpText = document.getElementById('helpText');
+    select.addEventListener('change', function() {
+        if (this.value === 'offline') {
+            helpText.innerText = '⚠️ Количество мест в зале ограничено!';
+            helpText.style.color = '#e74c3c';
+        } else if (this.value === 'online') {
+            helpText.innerText = '📩 Ссылку пришлем на почту за час до начала.';
+            helpText.style.color = '#5b5b5b';
+        } else { helpText.innerText = ''; }
+    });
+
+    // 3. FAQ АККОРДЕОН
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+
+        // Открываем те, что с классом active по умолчанию
+        if (item.classList.contains('active')) {
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+
+        question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+
+            // Закрываем все
+            faqItems.forEach(allItem => {
+                allItem.classList.remove('active');
+                allItem.querySelector('.faq-answer').style.maxHeight = null;
+            });
+
+            // Открываем текущий, если он был закрыт
+            if (!isActive) {
+                item.classList.add('active');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            }
+        });
+    });
+
+    // 4. ОБРАБОТКА ФОРМЫ
+    document.getElementById('regForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Спасибо за регистрацию! Мы свяжемся с вами в ближайшее время.');
+    });
+</script>
+
+</body>
+</html>

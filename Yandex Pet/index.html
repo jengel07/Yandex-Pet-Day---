@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yandex Pet Day 2025 — Конференция по продуктам для питомцев</title>
+  <meta name="description" content="20 июня 2025 — конференция для разработчиков, дизайнеров и продактов в pet-индустрии: ИИ, зооморфизм, монетизация и кейсы рынка."/>
+  <style>
+    :root {
+      --yandex-red: #fc3f1d;
+      --yandex-yellow: #ffcc00;
+      --text-dark: #1a1a1a;
+      --text-light: #666;
+      --bg-light: #fafafc;
+      --warm-beige: #f5f0e9;
+      --mint: #a3e4d7;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      line-height: 1.5;
+      color: var(--text-dark);
+      background: #fff;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #fff 0%, var(--warm-beige) 100%);
+      padding: 140px 0 100px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "🐾";
+      position: absolute;
+      font-size: 180px;
+      opacity: 0.07;
+      top: -40px;
+      left: -20px;
+      transform: rotate(-15deg);
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 8vw, 5.2rem);
+      font-weight: 900;
+      margin-bottom: 0.4em;
+      color: var(--yandex-red);
+    }
+
+    .subtitle {
+      font-size: clamp(1.3rem, 4vw, 1.8rem);
+      color: #333;
+      margin-bottom: 2.2rem;
+      max-width: 780px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .event-info {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 2.5rem;
+      color: var(--text-dark);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 18px 42px;
+      font-size: 1.18rem;
+      font-weight: 600;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.22s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--yandex-red);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #e63910;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(252,63,29,0.28);
+    }
+
+    .btn-outline {
+      background: white;
+      border: 2px solid var(--yandex-red);
+      color: var(--yandex-red);
+      margin-left: 16px;
+    }
+
+    .btn-outline:hover {
+      background: var(--yandex-red);
+      color: white;
+    }
+
+    section {
+      padding: 100px 0;
+    }
+
+    h2 {
+      font-size: 2.8rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: var(--text-dark);
+    }
+
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+    }
+
+    .benefit-card {
+      background: var(--bg-light);
+      padding: 40px 32px;
+      border-radius: 16px;
+      border: 1px solid #eee;
+      transition: all 0.25s ease;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      border-color: var(--yandex-red);
+    }
+
+    .benefit-card h3 {
+      color: var(--yandex-red);
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+    }
+
+    .speakers, .program {
+      display: grid;
+      gap: 32px;
+    }
+
+    @media (min-width: 768px) {
+      .speakers { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .speaker-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+
+    .speaker-card .photo-placeholder {
+      height: 220px;
+      background: linear-gradient(135deg, #ffe0d9, #ffd1c4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      color: rgba(252,63,29,0.4);
+    }
+
+    .speaker-card .content {
+      padding: 24px;
+    }
+
+    .speaker-card h3 {
+      font-size: 1.32rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .speaker-card .position {
+      color: var(--text-light);
+      font-size: 0.98rem;
+    }
+
+    .timeline {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 100px;
+      padding-bottom: 48px;
+    }
+
+    .timeline-item:last-child { padding-bottom: 0; }
+
+    .timeline-time {
+      position: absolute;
+      left: 0;
+      top: 4px;
+      font-weight: 700;
+      color: var(--yandex-red);
+      width: 80px;
+      text-align: right;
+    }
+
+    .timeline-content h4 {
+      margin-bottom: 0.6rem;
+    }
+
+    .faq .question {
+      background: var(--bg-light);
+      margin-bottom: 12px;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .faq summary {
+      padding: 20px 28px;
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+      position: relative;
+    }
+
+    .faq summary::-webkit-details-marker { display: none; }
+
+    .faq summary::after {
+      content: "↓";
+      position: absolute;
+      right: 28px;
+      transition: transform 0.3s;
+    }
+
+    .faq details[open] summary::after {
+      transform: rotate(180deg);
+    }
+
+    .faq .answer {
+      padding: 0 28px 28px;
+      color: #555;
+    }
+
+    footer {
+      background: var(--text-dark);
+      color: white;
+      text-align: center;
+      padding: 60px 20px 40px;
+    }
+
+    .registration-form {
+      background: var(--warm-beige);
+      padding: 60px 40px;
+      border-radius: 24px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+
+    .format-choice {
+      display: flex;
+      gap: 20px;
+      margin: 16px 0 32px;
+    }
+
+    .format-choice label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: normal;
+      cursor: pointer;
+    }
+
+    .limit-note {
+      font-size: 0.9rem;
+      color: #d32f2f;
+      margin-top: 4px;
+    }
+
+    @media (max-width: 640px) {
+      header { padding: 100px 0 80px; }
+      section { padding: 60px 0; }
+      h2 { font-size: 2.2rem; }
+      .btn { padding: 16px 36px; font-size: 1.05rem; }
+      .registration-form { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>Yandex Pet Day 2025</h1>
+    <div class="subtitle">Конференция по digital-продуктам в сфере зообизнеса и сервисов для животных</div>
+    <div class="event-info">20 июня 2025 • 11:00 • Москва (офлайн, «Академия») + онлайн</div>
+
+    <div style="margin: 2.5rem 0;">
+      <a href="#registration" class="btn btn-primary">Зарегистрироваться</a>
+    </div>
+  </div>
+</header>
+
+<section id="benefits">
+  <div class="container">
+    <h2>Вы сможете</h2>
+    <div class="benefits">
+      <div class="benefit-card">
+        <h3>Выбрать удобный формат</h3>
+        <p>Прийти лично в Москву или подключиться к онлайн-трансляции из любой точки мира</p>
+      </div>
+      <div class="benefit-card">
+        <h3>Завязать полезные знакомства</h3>
+        <p>Ключевые представители pet-индустрии, топ-менеджеры и инвесторы</p>
+      </div>
+      <div class="benefit-card">
+        <h3>Узнать тренды и реальные кейсы</h3>
+        <p>Как ИИ, зооморфизм и новые модели монетизации приносят рост</p>
+      </div>
+      <div class="benefit-card">
+        <h3>Получить практические инструменты</h3>
+        <p>Готовые механики, которые можно применить в своём продукте уже завтра</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="speakers" style="background:#fafafc;">
+  <div class="container">
+    <h2>Спикеры</h2>
+    <div class="speakers">
+      <div class="speaker-card">
+        <div class="photo-placeholder">🐶</div>
+        <div class="content">
+          <h3>Андрей Соколов</h3>
+          <div class="position">Head of Product Design, Яндекс<br>Ведущий конференции</div>
+          <p>«Компьютерное зрение в ветеринарии»</p>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <div class="photo-placeholder">🤖</div>
+        <div class="content">
+          <h3>Мария Подольская</h3>
+          <div class="position">Head of AI, Лаборатория инноваций</div>
+          <p>«Зооморфизм как драйвер лояльности»</p>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <div class="photo-placeholder">📈</div>
+        <div class="content">
+          <h3>Павел Сидоров</h3>
+          <div class="position">CEO, маркетплейс «Зоо-Маркет»</div>
+          <p>«От стартапа до маркетплейса №1: ошибки и победы»</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="program">
+  <div class="container">
+    <h2>Программа</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-time">10:00</div>
+        <div class="timeline-content">
+          <h4>Приветственный кофе. Нетворкинг</h4>
+          <p>(только офлайн)</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">11:00</div>
+        <div class="timeline-content">
+          <h4>Вводное слово</h4>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">11:30</div>
+        <div class="timeline-content">
+          <h4>Компьютерное зрение в ветеринарии</h4>
+          <p>Андрей Соколов, Яндекс</p>
+        </div>
+      </div>
+      <!-- остальные пункты программы аналогично -->
+    </div>
+  </div>
+</section>
+
+<section id="registration" style="background:var(--mint);">
+  <div class="container">
+    <h2 style="color:#fff;">Регистрация</h2>
+    <form class="registration-form">
+      <div class="form-group">
+        <label for="name">Имя</label>
+        <input type="text" id="name" required placeholder="Как к вам обращаться"/>
+      </div>
+      <div class="form-group">
+        <label for="email">Почта</label>
+        <input type="email" id="email" required placeholder="example@petstartup.ru"/>
+      </div>
+      <div class="form-group">
+        <label>Формат участия</label>
+        <div class="format-choice">
+          <label><input type="radio" name="format" value="offline" checked> Офлайн (Москва)</label>
+          <label><input type="radio" name="format" value="online"> Онлайн</label>
+        </div>
+        <div class="limit-note" id="offline-note" style="display:block;">
+          Количество мест ограничено
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%; font-size:1.3rem; padding:20px;">
+        Зарегистрироваться
+      </button>
+    </form>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="container">
+    <h2>Вопросы и ответы</h2>
+    <details class="question">
+      <summary>Кому точно стоит прийти?</summary>
+      <div class="answer">
+        Владельцам и сотрудникам digital-продуктов в pet-сфере, маркетологам, продактам, дизайнерам и разработчикам, которые хотят войти в этот быстрорастущий рынок.
+      </div>
+    </details>
+    <details class="question">
+      <summary>Можно прийти с питомцем?</summary>
+      <div class="answer">
+        Да, в офлайн-формате! Будет специальная зона с водой и мисками. Пожалуйста, предупредите при регистрации и убедитесь, что питомец социализирован.
+      </div>
+    </details>
+    <!-- добавьте остальные вопросы по аналогии -->
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© Yandex Pet Day, 2025</p>
+    <p><a href="#" style="color:#ffcc00; text-decoration:none;">Политика конфиденциальности</a></p>
+  </div>
+</footer>
+
+<script>
+  // Простое переключение подсказки при выборе формата
+  document.querySelectorAll('input[name="format"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+      document.getElementById('offline-note').style.display = 
+        radio.value === 'offline' ? 'block' : 'none';
+    });
+  });
+
+  // Предотвращение отправки формы (демо)
+  document.querySelector('form').addEventListener('submit', e => {
+    e.preventDefault();
+    alert('Регистрация отправлена! (демонстрация)');
+  });
+</script>
+</body>
+</html>
